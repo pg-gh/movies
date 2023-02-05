@@ -1,0 +1,77 @@
+import {
+	Search,
+	PlaylistPlay,
+	LiveTv,
+	Tv,
+	List,
+	WatchLaterOutlined,
+	FavoriteBorder,
+	Settings,
+	ExitToApp,
+} from "@material-ui/icons";
+
+export const mainNavigation = [
+	{
+		name: "Discover",
+		icon: Search,
+		url: "#",
+		selected: true,
+		divider: false,
+	},
+	{
+		name: "Playlist",
+		icon: PlaylistPlay,
+		url: "#",
+		selected: false,
+		divider: false,
+	},
+	{
+		name: "Movie",
+		icon: LiveTv,
+		url: "#",
+		selected: false,
+		divider: false,
+	},
+	{
+		name: "TV Shows",
+		icon: Tv,
+		url: "#",
+		selected: false,
+		divider: false,
+	},
+	{
+		name: "My List",
+		icon: List,
+		url: "#",
+		selected: false,
+		divider: false,
+	},
+	{
+		name: "Watch Later",
+		icon: WatchLaterOutlined,
+		url: "#",
+		selected: false,
+		divider: true,
+	},
+	{
+		name: "Recomended",
+		icon: FavoriteBorder,
+		url: "#",
+		selected: false,
+		divider: false,
+	},
+	{
+		name: "Settings",
+		icon: Settings,
+		url: "#",
+		selected: false,
+		divider: true,
+	},
+	{
+		name: "Logout",
+		icon: ExitToApp,
+		url: "#",
+		selected: false,
+		divider: false,
+	},
+];
