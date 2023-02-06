@@ -50,7 +50,11 @@ const useStyles = makeStyles((theme) => ({
 			display: "none",
 		},
 	},
-	toolbar: { paddingRight: 24, ...theme.mixins.toolbar },
+	toolbar: {
+		paddingRight: 24,
+		background: "#1F2A3C",
+		...theme.mixins.toolbar,
+	},
 	toolbarIcon: {
 		display: "flex",
 		alignItems: "center",
@@ -208,6 +212,9 @@ const MainLayout = ({ themeConfig, navigationData, children }) => {
 				</Drawer>
 			</Hidden>
 			<main className={clsx(classes.contentShift, extended && classes.content)}>
+				<Hidden smUp implementation="css">
+					<div className={classes.toolbar} />
+				</Hidden>
 				<div
 					style={{
 						flex: 1,

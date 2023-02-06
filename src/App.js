@@ -4,7 +4,7 @@ import { ThemeProvider } from "@material-ui/styles";
 import { MainLayout } from "./layouts";
 import { themeL, themeD } from "./themes";
 import { mainNavigation } from "./data";
-import Dashboard from "./views/Dashboard/Dashboard";
+import Dashboard from "./views/dashboard/Dashboard";
 
 const App = () => {
 	const [darkMode, setDarkMode] = React.useState(() => {

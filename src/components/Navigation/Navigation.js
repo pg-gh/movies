@@ -1,33 +1,33 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { List, makeStyles } from "@material-ui/core";
-import NavigationItem from "./components/NavigationItem";
+import NavigationItem from "./navigation-item/NavigationItem";
 
 const useStyles = makeStyles({
-  list: {
-    listStyle: "none",
-  },
+	list: {
+		listStyle: "none",
+	},
 });
 
 const Navigation = ({ data, collapsed }) => {
-  const classes = useStyles();
+	const classes = useStyles();
 
-  if (!Array.isArray(data)) return null;
+	if (!Array.isArray(data)) return null;
 
-  let renderData = data?.map((item, index) => {
-    return <NavigationItem key={index} item={item} collapsed={collapsed} />;
-  });
+	let renderData = data?.map((item, index) => {
+		return <NavigationItem key={index} item={item} collapsed={collapsed} />;
+	});
 
-  return (
-    <List className={classes.list} component='nav'>
-      {renderData}
-    </List>
-  );
+	return (
+		<List className={classes.list} component="nav">
+			{renderData}
+		</List>
+	);
 };
 
 export default Navigation;
 
 Navigation.propTypes = {
-  data: PropTypes.arrayOf(PropTypes.object).isRequired,
-  collapsed: PropTypes.bool,
+	data: PropTypes.arrayOf(PropTypes.object).isRequired,
+	collapsed: PropTypes.bool,
 };
