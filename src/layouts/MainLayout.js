@@ -131,7 +131,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-const MainLayout = ({ themeConfig, navigationData, children }) => {
+const MainLayout = ({ navigationData, children }) => {
 	const theme = useTheme();
 	const [extended, setExtended] = React.useState(true);
 	const classes = useStyles(extended);

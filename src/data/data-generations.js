@@ -1,4 +1,4 @@
-import { generateRange } from "./math-utils";
+import { generateRange } from "../shared/helpers/math-utils";
 
 export function generateMovie(id) {
 	return { id, ...moviesTokens[id] };

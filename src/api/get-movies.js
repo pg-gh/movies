@@ -1,4 +1,4 @@
-import { generateMovies } from "../shared/helpers/data-generations";
+import { generateMovies } from "../data/data-generations";
 import { httpMock } from "../shared/helpers/http-mock";
 import {
 	addIfNotExist,

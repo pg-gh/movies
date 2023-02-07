@@ -21,7 +21,7 @@ const App = () => {
 		localStorage.setItem("dark", !darkMode);
 	};
 
-	const themeSwitchCofig = {
+	const themeSwitchConfig = {
 		state: darkMode,
 		handler: darkModeToggle,
 	};
@@ -29,11 +29,8 @@ const App = () => {
 	const appliedTheme = createTheme(darkMode ? themeD : themeL);
 	return (
 		<ThemeProvider theme={appliedTheme}>
-			<MainLayout
-				navigationData={mainNavigation}
-				themeConfig={themeSwitchCofig}
-			>
-				<Dashboard />
+			<MainLayout navigationData={mainNavigation}>
+				<Dashboard themeConfig={themeSwitchConfig} />
 			</MainLayout>
 		</ThemeProvider>
 	);

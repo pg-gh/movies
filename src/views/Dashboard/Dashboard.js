@@ -5,7 +5,7 @@ import { useApi } from "../../shared/hooks/use-api";
 import Spinner from "../../components/Spinner";
 import MoviesList from "../../components/movies-list/MoviesList";
 
-const Dashboard = () => {
+const Dashboard = ({ themeSwitchCofig }) => {
 	const [getStudents, data, loadState] = useApi({
 		url: "get-homeboard-movies",
 	});
