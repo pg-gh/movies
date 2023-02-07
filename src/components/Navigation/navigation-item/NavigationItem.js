@@ -39,22 +39,12 @@ const useStyles = makeStyles((theme) => ({
 		alignItems: "center",
 		width: "100%",
 	},
-	listLinkCollapsed: {
-		[theme.breakpoints.up("sm")]: {
-			width: theme.spacing(7),
-			flexDirection: "column",
-			justifyContent: "center",
-		},
-	},
 	listIcon: {
 		color: "inherit",
 		justifyContent: "center",
 	},
 	listItemText: {
 		fontSize: 15,
-		[theme.breakpoints.only("sm")]: {
-			fontSize: 9,
-		},
 	},
 	expanded: {
 		backgroundColor: lighten(theme.palette.secondary.main, 0.1),
@@ -94,10 +84,7 @@ const NavigationItem = ({ item, collapsed }) => {
 					<Box
 						component={!nested ? Link : "div"}
 						to={`${item.url}`}
-						className={clsx(
-							classes.listLink,
-							collapsed && classes.listLinkCollapsed
-						)}
+						className={clsx(classes.listLink)}
 						underline="none"
 					>
 						<ListItemIcon className={classes.listIcon}>

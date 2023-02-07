@@ -7,7 +7,7 @@ const PageBody = ({ children, style }) => {
 	return (
 		<Box
 			style={{
-				padding: theme.spacing(2),
+				padding: theme.spacing(3),
 				flex: 1,
 				overflow: "auto",
 				backgroundColor: "#273244",

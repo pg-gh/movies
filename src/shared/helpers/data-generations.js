@@ -5,7 +5,7 @@ export function generateMovie(id) {
 }
 
 export function generateMovies() {
-	return generateRange(moviesTokens.length).map((_, id) =>
+	return generateRange(moviesTokens.length - 1).map((_, id) =>
 		generateMovie(id + 1)
 	);
 }
