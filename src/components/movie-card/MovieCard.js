@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardMedia from "@material-ui/core/CardMedia";
@@ -8,6 +8,8 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import PlayCircleOutlineIcon from "@material-ui/icons/PlayCircleOutline";
 import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
+import CardActionArea from "@material-ui/core/CardActionArea";
+import clsx from "clsx";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -36,37 +38,72 @@ const useStyles = makeStyles((theme) => ({
 	},
 	iconButton: {
 		padding: "0 5px 10px 5px",
+		"&:hover": {
+			backgroundColor: "transparent",
+		},
+	},
+	cardAction: {
+		"&:hover": {
+			backgroundColor: "#303030",
+		},
+	},
+	selected: {
+		border: "3px solid #00E0FF",
 	},
 }));
 
-export default function MovieCard({ item }) {
+let selectedId = 0;
+function MovieCard({ movie, onCardHandler }) {
 	const classes = useStyles();
 
 	return (
-		<Card className={classes.root}>
-			<CardMedia
-				className={classes.media}
-				image={item.Poster}
-				title={item.Title}
-			/>
-			<CardContent className={classes.content}>
-				<Typography
-					variant="body2"
-					color="textSecondary"
-					component="p"
-					className={classes.title}
-				>
-					{item.Title}
-				</Typography>
-			</CardContent>
-			<CardActions disableSpacing className={classes.action}>
-				<IconButton className={classes.iconButton}>
-					<PlayCircleOutlineIcon fontSize="medium" />
-				</IconButton>
-				<IconButton className={classes.iconButton}>
-					<AddCircleOutlineIcon fontSize="medium" />
-				</IconButton>
-			</CardActions>
+		<Card
+			className={clsx(
+				classes.root,
+				selectedId === movie.id && classes.selected
+			)}
+		>
+			<CardActionArea
+				className={classes.cardAction}
+				onClick={() => {
+					onCardHandler(movie.id);
+					selectedId = movie.id;
+				}}
+			>
+				<CardMedia
+					className={classes.media}
+					image={movie.Poster}
+					title={movie.id}
+				/>
+				<CardContent className={classes.content}>
+					<Typography
+						variant="body2"
+						color="textSecondary"
+						component="p"
+						className={classes.title}
+					>
+						{movie.Title}
+					</Typography>
+				</CardContent>
+				<CardActions disableSpacing className={classes.action}>
+					<IconButton
+						disableRipple
+						disableFocusRipple
+						className={classes.iconButton}
+					>
+						<PlayCircleOutlineIcon fontSize="medium" />
+					</IconButton>
+					<IconButton
+						disableRipple
+						disableFocusRipple
+						className={classes.iconButton}
+					>
+						<AddCircleOutlineIcon fontSize="medium" />
+					</IconButton>
+				</CardActions>
+			</CardActionArea>
 		</Card>
 	);
 }
+
+export default memo(MovieCard);
